@@ -2,23 +2,54 @@
 #  
 import sys
 
-print('You wake on stone cold. The cell door hangs open. Somewhere above, water drips. Find a way out. ')
-while True: 
-    print('Type Start or Exit: ', end='')
-    initGame = input().strip().lower()
-    if initGame == 'exit':
-        print('EXITED GAME')
-        sys.exit()
-    elif initGame == 'start':
-        # print("STARTED GAME")
-        break
-    else: 
-        print('That is not a COMMAND')
-        
-print('THIS IS THE NEXT PART')
+def exit_game():
+    print('You exited the game')
+    sys.exit()
+
+def inventory():
+    print('inventory')
+
+def start_game():
+    print('You wake on stone cold. Somewhere above, water drips. You need to get out!! ')
+    while True: 
+        print('Type Start or Exit: ', end='')
+        initGame = input().strip().lower()
+        if initGame == 'exit':
+            exit_game()
+        elif initGame == 'start':
+            # print("STARTED GAME")
+            break
+        else: 
+            print('That is not a command')
+start_game()
+
+def cell_start():
+    print('You look around you see nothing but an a dark cell with a torch and a gate ' )
 
 
-# press play - starts the game and the story 
+    cellStartOptions = [
+        'Press 1: Check the gate',
+        'Press 2: Look under the bed',
+        'Press 3: Grab Torch',
+        'Press 4: Help'
+        ]
+    for items in cellStartOptions:
+        print(items)
+    
+    while True:
+        cellChoice = int(input().strip())
+        if cellChoice in range(1, 5):
+
+            print()      
+        else:
+            print('This is not a command')
+
+
+    # when the person picks an option what happens next? 
+    
+cell_start()
+
+
 
 
 
