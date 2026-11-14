@@ -2,34 +2,20 @@
 #  
 import sys
 
-# we want to exit the game a user enters exit
-    # gameOn is true until he hits exit
-# we want to say not a command if its not one of the option. 
-# 
 print('You wake on stone cold. The cell door hangs open. Somewhere above, water drips. Find a way out. ')
-gameOn = True
-while gameOn: 
-    start = print('Type Start or Exit: ', end='')
-    initGame = input()
-    if initGame.lower() == 'exit':
-        gameOn = False 
+while True: 
+    print('Type Start or Exit: ', end='')
+    initGame = input().strip().lower()
+    if initGame == 'exit':
         print('EXITED GAME')
         sys.exit()
-    elif initGame.lower() == 'start':
+    elif initGame == 'start':
         # print("STARTED GAME")
         break
     else: 
         print('That is not a COMMAND')
         
 print('THIS IS THE NEXT PART')
-
-# print('CONTINUED TO THE NEXT PART')
-
-        # if this doesnt end the program we need to find a way to end it
-
-
-
-
 
 
 # press play - starts the game and the story 
