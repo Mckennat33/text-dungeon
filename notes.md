@@ -8,3 +8,30 @@ WIN: escape through the gate
 
 What does the player need to do to win. 
 
+DESIGN THE GAME
+
+# Items 
+torch 
+key 
+lever
+*item that does nothing
+# Rooms
+Cell 
+Crypt 
+Closet 
+Chest
+Guard Room 
+
+# Found it Wins (door opens, chest unlocked)
+
+# Loses 
+Someone sees you
+
+# Player instructions
+moving go (north, east, west, south)
+look - describe the room 
+take (item)
+inventory (see what you are carrying)
+use (item)
+help - show this list
+quit - end game 
