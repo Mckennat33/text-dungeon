@@ -2,6 +2,47 @@
 #  
 import sys
 
+rooms = {
+    'cell' : {
+        'exits': {'north': 'corridor'}, 
+        'description': '', # going to update this after I finish thinking this list out
+        'items': ['torch', 'rusty spoon'],
+    },
+    'corridor' : {
+        'exits': {'north': 'gate', 'west': 'storage', 'east': 'guard room', 'south': 'cell'}, 
+        'description': '',
+        'items': [],
+    },
+    'storage' : {
+        'exits': {'east': 'corridor'}, 
+        'description': '',
+        'items': ['iron key'],
+    },
+    'guard room' : {
+        'exits': {'west': 'corridor'}, 
+        'description': '',
+        'items': [],
+        "lever_pulled": False,
+        "locked": True,
+    },
+    'gate' : {
+        'exits': {'west': 'trap room', 'east': 'win', 'south': 'corridor'}, 
+        'description': '',
+        'items': [],
+    },
+    'trap room' : {
+        'exits': {}, 
+        'description': '',
+        'items': [],
+    },
+    'win' : {
+        'exits': {}, 
+        'description': '',
+        'items': [],
+    },
+
+}
+
 def exit_game():
     print('You exited the game')
     sys.exit()
@@ -33,13 +74,12 @@ def cell_start():
         'Press 3: Grab Torch',
         'Press 4: Help'
         ]
+    
     for items in cellStartOptions:
         print(items)
-    
     while True:
         cellChoice = int(input().strip())
         if cellChoice in range(1, 5):
-
             print()      
         else:
             print('This is not a command')
@@ -76,16 +116,25 @@ cell_start()
 #   help             show this list
 #   quit             end the game
 
-
-#                 [ Gate ]  ← WIN (needs lever pulled)
+                    #adding a top room 
+#west (TRAP ROOM)   <- [ Gate ]  ←> WIN (needs lever pulled)
 #                     |
 #                   north
 #                     |
 # [ Crypt ] --west-- [ Corridor ] --east-- [ Guard Room ]
-#  (dark: needs                             (locked: needs iron key)
+#  (dark: needs                             (locked: needs iron key)                                   lever_pulled: True/False
 #   torch)                                   has: lever
 #  has: iron key      |
 #                   south
 #                     |
 #                  [ Cell ]  ← START
 #                  has: torch, rusty spoon
+
+# rooms = {
+#     'cell': {
+#         'exits': {'north': 'corridor'},
+#     },
+#     'corridor': {
+#         'exits': {'north': 'gate', 'west': 'crypt', 'east': 'guard room', 'south': 'cell'},
+#     },
+# }
