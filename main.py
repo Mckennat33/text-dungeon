@@ -4,8 +4,9 @@ import sys
 rooms = {
     'cell' : {
         'exits': {'north': 'corridor'}, 
-        'description': '', # going to update this after I finish thinking this list out
+        'description': '', # What the player sees. Note question goes in the prompt. 
         'items': ['torch', 'rusty spoon'],
+        'locked': True,
     },
     'corridor' : {
         'exits': {'north': 'gate', 'west': 'storage', 'east': 'guard room', 'south': 'cell'}, 
@@ -42,10 +43,12 @@ rooms = {
 
 }
 
-
+inventory = [] # user adds items to inventory here
 
 def get_command():
     print("Get Command")
+    # question goes in the prompt text you pass goes to get_command
+
     # Shows prompt and waits for input. 
     # cleans the answer
     # handles exits everywhere
@@ -73,9 +76,10 @@ def start_game():
 start_game()
 
 def cell_start():
-    print('You look around you see nothing but an a dark cell with a torch and a gate ' )
 
-
+    
+    # users choice in a variable thats sent to get_command
+    # need room description 
     cellStartOptions = [
         'Press 1: Check the gate',
         'Press 2: Look under the bed',
