@@ -1,5 +1,4 @@
-# print start story of the game - maybe a play or exit option
-#  
+
 import sys
 
 rooms = {
@@ -42,6 +41,15 @@ rooms = {
     },
 
 }
+
+
+
+def get_command():
+    print("Get Command")
+    # Shows prompt and waits for input. 
+    # cleans the answer
+    # handles exits everywhere
+    # where do I call it? probably in any function that needs a command
 
 def exit_game():
     print('You exited the game')
