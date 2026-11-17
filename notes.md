@@ -20,6 +20,7 @@ rooms - data
 
 -----------------------------------
 
+
 Look
 Take
 Inventory
@@ -64,3 +65,18 @@ inventory (see what you are carrying)
 use (item)
 help - show this list
 quit - end game 
+
+
+                   #adding a top room 
+#west (TRAP ROOM)   <- [ Gate ]  ←> WIN (needs lever pulled)
+#                     |
+#                   north
+#                     |
+# [ Crypt ] --west-- [ Corridor ] --east-- [ Guard Room ]
+#  (dark: needs                             (locked: needs iron key)                                   lever_pulled: True/False
+#   torch)                                   has: lever
+#  has: iron key      |
+#                   south
+#                     |
+#                  [ Cell ]  ← START
+#                  has: torch, rusty spoon
