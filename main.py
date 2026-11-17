@@ -1,7 +1,7 @@
 
 import sys
 
-rooms = {# Environment and how they connect
+rooms = {
     'cell' : {
         'exits': {'north': 'corridor'}, 
         'description': "It's nearly pitch black. The only light comes from the torch flickering in a bracket on the wall", 
@@ -44,19 +44,16 @@ rooms = {# Environment and how they connect
 
 }
 
-inventory = [] # items 
+inventory = []  
 def show_inventory():
     print(inventory) # need to add functionality
 
-def get_command(prompt): # what your player can do 
-    command = ['Look', 'Take', 'Inventory', 'Use', 'Help', 'Quit'] # this will be empty? 
-    print(prompt, 'from command function')
-    # question goes in the prompt text you pass goes to get_command
-
-    # Shows prompt and waits for input. 
-    # cleans the answer
-    # handles exits everywhere
-    # where do I call it? probably in any function that needs a command
+def get_command(prompt): 
+    # show prompt
+    # read the input 
+    # clean it
+    # return it
+    print(prompt)
 
 def exit_game():
     print('You exited the game')
@@ -79,56 +76,22 @@ def start_game():
             
 
 def play(): 
+    #what dictates what cell we are in?
     current_rooms = "cell" 
     print("Type 'help' for a list of commands")
 
     cell_descipription = rooms.get("cell", {}).get("description", {})
 
     print(cell_descipription)
-    print('You see: torch') # hard coded 
+    print('You see: torch')    
     print('Exits: north')
-    while current_rooms == 'cell':
+    while current_rooms == 'cell': # changes the room 
         firstChoice = input('').strip().lower()
-        if firstChoice not in ('north', 'look under bed', 'grab torch', 'quit'):
+        if firstChoice not in ('north', 'look', 'grab torch', 'use', 'help', 'quit'):
             print('not a valid command, press help if needed')
-            continue # continue because it there is no other input it start the while loop
-        elif firstChoice == 'north':
+            continue 
+        else:
             get_command(firstChoice)
-            break
-            
-# expected input - 
-# expected output - 
-
-
-    # if current_rooms == "cell":
-    #     print("You See: torch")
-    #     print('Exits')
-    
-
-
-    # pick description of cell
-    # User given choices on what he can o 
-
-
-
-    # users choice in a variable thats sent to get_command
-    # need room description 
-    # Options for player and next objective
-    # send his answer to get_command
-        # write that function
-
-
-    # get_command - logic
-    # rooms information
-    
-    # for items in cellStartOptions:
-    #     print(items)
-    # while True:
-    #     cellChoice = int(input().strip())
-    #     if cellChoice in range(1, 5):
-    #         print()      
-    #     else:
-    #         print('This is not a command')
 
 start_game()
 play()

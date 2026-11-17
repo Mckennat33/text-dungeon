@@ -1,3 +1,32 @@
+# Problem Solving 
+
+User enters the games
+Yes or no
+
+Goes to play function 
+	Current room he is in - is it dynamic
+	Description of room 
+    enter a command / direction
+        function command (player instructions)
+        what we expect the input to be? =  north, look, torch, quit
+
+PROBLEM - 
+
+get_command - what the player can do. 
+rooms - data
+        
+
+
+
+-----------------------------------
+
+Look
+Take
+Inventory
+Use 
+Help
+Quit
+
 WIN: escape through the gate
  └─ needs: gate opened
      └─ needs: pull the lever (in the Guard Room)
@@ -25,7 +54,7 @@ Guard Room
 # Found it Wins (door opens, chest unlocked)
 
 # Loses 
-Someone sees you
+Trap Door 
 
 # Player instructions
 moving go (north, east, west, south)
