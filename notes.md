@@ -15,9 +15,7 @@ PROBLEM -
 get_command - what the player can do. 
 rooms - data
         
-
-
-
+maybe change while loop at the top and 
 -----------------------------------
 
 

@@ -63,7 +63,7 @@ def exit_game():
 def start_game():
     print('You wake on stone cold. Somewhere above, water drips. You need to get out!!')
 
-    while True: # Program runs until while loop is exited:below
+    while True: 
         print('Type Start or Exit: ', end='')
         initGame = input('').strip().lower()
         print('================================')
@@ -76,16 +76,16 @@ def start_game():
             
 
 def play(): 
-    #what dictates what cell we are in?
-    current_rooms = "cell" 
+    current_rooms = "" 
     print("Type 'help' for a list of commands")
+    
+    cell_descipription = rooms[f"{current_rooms}"]["description"]
 
-    cell_descipription = rooms.get("cell", {}).get("description", {})
-
+    # how do we tell the game what cell to start in 
     print(cell_descipription)
     print('You see: torch')    
     print('Exits: north')
-    while current_rooms == 'cell': # changes the room 
+    while True: # makes cell dynamic 
         firstChoice = input('').strip().lower()
         if firstChoice not in ('north', 'look', 'grab torch', 'use', 'help', 'quit'):
             print('not a valid command, press help if needed')
