@@ -49,7 +49,8 @@ def show_inventory():
     print(inventory) # need to add functionality
 
 def get_command(prompt): # what your player can do 
-    print("Get Command")
+    command = ['Look', 'Take', 'Inventory', 'Use', 'Help', 'Quit']
+    print('Command Entered')
     # question goes in the prompt text you pass goes to get_command
 
     # Shows prompt and waits for input. 
@@ -83,6 +84,9 @@ def play(): # practice problem solving
     # print('================================')
     cell_descipription = rooms.get("cell", {}).get("description", {})
     print(cell_descipription)
+    print('What is your next move?')
+    firstChoice = input('').strip().lower()
+    get_command(firstChoice)
     # if current_rooms == "cell":
     #     print("You See: torch")
     #     print('Exits')
