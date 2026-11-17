@@ -3,19 +3,9 @@
 User enters the games
 Yes or no
 
-Goes to play function 
-	Current room he is in - is it dynamic
-	Description of room 
-    enter a command / direction
-        function command (player instructions)
-        what we expect the input to be? =  north, look, torch, quit
+the exits and you see print statements need to be dynamic for each cell
 
-PROBLEM - 
 
-get_command - what the player can do. 
-rooms - data
-        
-maybe change while loop at the top and 
 -----------------------------------
 
 

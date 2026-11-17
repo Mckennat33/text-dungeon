@@ -48,16 +48,24 @@ inventory = []
 def show_inventory():
     print(inventory) # need to add functionality
 
-def get_command(prompt): 
+def get_command(prompt):
+    # print(prompt)
+    print('================================')
+    if prompt == 'help': # maybe put these in a help list??
+        print('moving go: (north, east, west, south)\n', 'look: description of room\n', 'take: item\n', 'inventory\n', 'use: item\n', 'help\n', 'quit\n')
+    elif prompt == 'quit':
+        exit_game()
+
     # show prompt
     # read the input 
     # clean it
     # return it
-    print(prompt)
-
+ 
+    
 def exit_game():
     print('You exited the game')
     sys.exit()
+
 
 
 def start_game():
@@ -76,22 +84,22 @@ def start_game():
             
 
 def play(): 
-    current_rooms = "" 
+    current_rooms = "cell" 
     print("Type 'help' for a list of commands")
     
     cell_descipription = rooms[f"{current_rooms}"]["description"]
 
-    # how do we tell the game what cell to start in 
+    
     print(cell_descipription)
     print('You see: torch')    
     print('Exits: north')
-    while True: # makes cell dynamic 
-        firstChoice = input('').strip().lower()
-        if firstChoice not in ('north', 'look', 'grab torch', 'use', 'help', 'quit'):
+    while True:  
+        action = input('').strip().lower()
+        if action not in ('north', 'look', 'grab torch', 'use', 'help', 'quit'): #may need to change this
             print('not a valid command, press help if needed')
             continue 
         else:
-            get_command(firstChoice)
+            get_command(action)
 
 start_game()
 play()
