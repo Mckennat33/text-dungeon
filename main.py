@@ -49,8 +49,8 @@ def show_inventory():
     print(inventory) # need to add functionality
 
 def get_command(prompt): # what your player can do 
-    command = ['Look', 'Take', 'Inventory', 'Use', 'Help', 'Quit']
-    print('Command Entered')
+    command = ['Look', 'Take', 'Inventory', 'Use', 'Help', 'Quit'] # this will be empty? 
+    print(prompt, 'from command function')
     # question goes in the prompt text you pass goes to get_command
 
     # Shows prompt and waits for input. 
@@ -92,9 +92,10 @@ def play():
         if firstChoice not in ('north', 'look under bed', 'grab torch', 'quit'):
             print('not a valid command, press help if needed')
             continue # continue because it there is no other input it start the while loop
-        else:
-            print('Action Command')
+        elif firstChoice == 'north':
+            get_command(firstChoice)
             break
+            
 # expected input - 
 # expected output - 
 
