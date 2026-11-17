@@ -78,15 +78,27 @@ def start_game():
             print('That is not a command')
             
 
-def play(): # practice problem solving
+def play(): 
     current_rooms = "cell" 
     print("Type 'help' for a list of commands")
-    # print('================================')
+
     cell_descipription = rooms.get("cell", {}).get("description", {})
+
     print(cell_descipription)
-    print('What is your next move?')
-    firstChoice = input('').strip().lower()
-    get_command(firstChoice)
+    print('You see: torch') # hard coded 
+    print('Exits: north')
+    while current_rooms == 'cell':
+        firstChoice = input('').strip().lower()
+        if firstChoice not in ('north', 'look under bed', 'grab torch', 'quit'):
+            print('not a valid command, press help if needed')
+            continue # continue because it there is no other input it start the while loop
+        else:
+            print('Action Command')
+            break
+# expected input - 
+# expected output - 
+
+
     # if current_rooms == "cell":
     #     print("You See: torch")
     #     print('Exits')
