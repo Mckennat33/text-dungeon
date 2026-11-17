@@ -48,9 +48,13 @@ inventory = []
 def show_inventory():
     print(inventory) # need to add functionality
 
-def handle_command(dir, room):
-    print('================================')
-    print(f"You typed {dir}")
+def handle_command(prompt, room):
+    if prompt == "quit":
+        exit_game()
+    else:
+        print('================================')
+        print(f"You typed {prompt}")
+    
 
 def exit_game():
     print('You exited the game')
