@@ -68,6 +68,7 @@ def start_game():
     while True: # Program runs until while loop is exited:below
         print('Type Start or Exit: ', end='')
         initGame = input('').strip().lower()
+        print('================================')
         if initGame == 'exit':
             exit_game()
         elif initGame == 'start':
@@ -79,9 +80,9 @@ def start_game():
 def play(): # practice problem solving
     current_rooms = "cell" 
     print("Type 'help' for a list of commands")
-
-    # cell_descipription = rooms.get("cell", {}).get("description", {})
-    # print(cell_descipription)
+    # print('================================')
+    cell_descipription = rooms.get("cell", {}).get("description", {})
+    print(cell_descipription)
     # if current_rooms == "cell":
     #     print("You See: torch")
     #     print('Exits')
