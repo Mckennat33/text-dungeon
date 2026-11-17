@@ -51,10 +51,8 @@ def show_inventory():
 def get_command(prompt):
     # print(prompt)
     print('================================')
-    if prompt == 'help': # maybe put these in a help list??
-        print('moving go: (north, east, west, south)\n', 'look: description of room\n', 'take: item\n', 'inventory\n', 'use: item\n', 'help\n', 'quit\n')
-    elif prompt == 'quit':
-        exit_game()
+    print(prompt)
+
 
     # show prompt
     # read the input 
@@ -84,22 +82,20 @@ def start_game():
             
 
 def play(): 
-    current_rooms = "cell" 
+    current_room = "cell" 
     print("Type 'help' for a list of commands")
-    
-    cell_descipription = rooms[f"{current_rooms}"]["description"]
-
-    
-    print(cell_descipription)
-    print('You see: torch')    
-    print('Exits: north')
     while True:  
+        room_descipription = rooms[current_room]["description"]
+        print(room_descipription)
+        room_exits = rooms[current_room]['exits'] 
         action = input('').strip().lower()
-        if action not in ('north', 'look', 'grab torch', 'use', 'help', 'quit'): #may need to change this
-            print('not a valid command, press help if needed')
-            continue 
-        else:
+        if action in ('look', 'use', 'take', 'inventory' ,'help', 'quit'): 
             get_command(action)
+            continue 
+        elif action in (room_exits): 
+            get_command(action)
+        else:
+            print('that is not a command')
 
 start_game()
 play()

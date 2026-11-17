@@ -1,10 +1,9 @@
 # Problem Solving 
 
-User enters the games
-Yes or no
-
 the exits and you see print statements need to be dynamic for each cell
 
+Remove the continue: line 94 
+Updated elif action in room_exits: line 95
 
 -----------------------------------
 
