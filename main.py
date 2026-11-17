@@ -4,9 +4,10 @@ import sys
 rooms = {# Environment and how they connect
     'cell' : {
         'exits': {'north': 'corridor'}, 
-        'description': '', # What the player sees. Note question goes in the prompt. 
+        'description': "It's nearly pitch black. The only light comes from the torch flickering in a bracket on the wall", 
         'items': ['torch', 'rusty spoon'],
         'locked_exits': True,
+        'locked_message': "The cell door won't budge but the hinges look loose"
     },
     'corridor' : {
         'exits': {'north': 'gate', 'west': 'storage', 'east': 'guard room', 'south': 'cell'}, 
@@ -62,29 +63,38 @@ def exit_game():
 
 
 def start_game():
-    print('You wake on stone cold. Somewhere above, water drips. You need to get out!! ')
+    print('You wake on stone cold. Somewhere above, water drips. You need to get out!!')
 
     while True: # Program runs until while loop is exited:below
         print('Type Start or Exit: ', end='')
-        initGame = input().strip().lower()
+        initGame = input('').strip().lower()
         if initGame == 'exit':
             exit_game()
         elif initGame == 'start':
-            
             break
         else: 
             print('That is not a command')
+            
 
-def play():
-    # input = play
-    # output = description of room 
+def play(): # practice problem solving
+    current_rooms = "cell" 
+    print("Type 'help' for a list of commands")
 
-
-
+    # cell_descipription = rooms.get("cell", {}).get("description", {})
+    # print(cell_descipription)
+    # if current_rooms == "cell":
+    #     print("You See: torch")
+    #     print('Exits')
     
+
+
+    # pick description of cell
+    # User given choices on what he can o 
+
+
+
     # users choice in a variable thats sent to get_command
     # need room description 
-    current_room = "cell" 
     # Options for player and next objective
     # send his answer to get_command
         # write that function
