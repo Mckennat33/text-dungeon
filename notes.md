@@ -4,6 +4,20 @@ the exits and you see print statements need to be dynamic for each cell
 
 Remove the continue: line 94 
 Updated elif action in room_exits: line 95
+1. line 85: needs to be an functionality for player to leave
+2. line 81: "options" for an action 
+3. line 84: "exit" options for an action - what happens next? 
+
+Where do I put gate is locked? 
+
+# need to check if the door is locked first? 
+
+
+get_command():
+    # show prompt
+    # read the input 
+    # clean it
+    # return it
 
 -----------------------------------
 
@@ -60,8 +74,8 @@ quit - end game
 #                   north
 #                     |
 # [ Crypt ] --west-- [ Corridor ] --east-- [ Guard Room ]
-#  (dark: needs                             (locked: needs iron key)                                   lever_pulled: True/False
-#   torch)                                   has: lever
+#  (dark: torch                             (locked: needs iron )                                   lever_pulled: True/False
+#   )                                   has: lever
 #  has: iron key      |
 #                   south
 #                     |

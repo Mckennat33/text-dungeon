@@ -4,9 +4,9 @@ import sys
 rooms = {
     'cell' : {
         'exits': {'north': 'corridor'}, 
-        'description': "It's nearly pitch black. The only light comes from the torch flickering in a bracket on the wall", 
+        'description': "It's nearly pitch black. The only light comes from the torch flickering in a bracket on the wall, a rotting bed sits in the corner", 
         'items': ['torch', 'rusty spoon'],
-        'locked_exits': True,
+        'locked_exit': True,
         'locked_message': "The cell door won't budge but the hinges look loose"
     },
     'corridor' : {
@@ -17,7 +17,7 @@ rooms = {
     'storage' : {
         'exits': {'east': 'corridor'}, 
         'description': '',
-        'items': ['iron key'],
+        'items': ['iron key'], 
     },
     'guard room' : {
         'exits': {'west': 'corridor'}, 
@@ -48,23 +48,13 @@ inventory = []
 def show_inventory():
     print(inventory) # need to add functionality
 
-def get_command(prompt):
-    # print(prompt)
+def handle_command(prompt):
     print('================================')
-    print(prompt)
+    print(f"You pressed {prompt}")
 
-
-    # show prompt
-    # read the input 
-    # clean it
-    # return it
- 
-    
 def exit_game():
     print('You exited the game')
     sys.exit()
-
-
 
 def start_game():
     print('You wake on stone cold. Somewhere above, water drips. You need to get out!!')
@@ -79,21 +69,21 @@ def start_game():
             break
         else: 
             print('That is not a command')
-            
 
 def play(): 
     current_room = "cell" 
     print("Type 'help' for a list of commands")
+    room_descipription = rooms[current_room]["description"]
+    locked = rooms[current_room]['locked_exit']
+    lockedM = rooms[current_room]['locked_message']
+    print(room_descipription)
     while True:  
-        room_descipription = rooms[current_room]["description"]
-        print(room_descipription)
         room_exits = rooms[current_room]['exits'] 
         action = input('').strip().lower()
         if action in ('look', 'use', 'take', 'inventory' ,'help', 'quit'): 
-            get_command(action)
-            continue 
-        elif action in (room_exits): 
-            get_command(action)
+            handle_command(action, current_room) 
+        elif locked == True:
+            print(lockedM)
         else:
             print('that is not a command')
 
