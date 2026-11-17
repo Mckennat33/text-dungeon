@@ -48,9 +48,9 @@ inventory = []
 def show_inventory():
     print(inventory) # need to add functionality
 
-def handle_command(prompt):
+def handle_command(dir, room):
     print('================================')
-    print(f"You pressed {prompt}")
+    print(f"You typed {dir}")
 
 def exit_game():
     print('You exited the game')
@@ -81,9 +81,13 @@ def play():
         room_exits = rooms[current_room]['exits'] 
         action = input('').strip().lower()
         if action in ('look', 'use', 'take', 'inventory' ,'help', 'quit'): 
-            handle_command(action, current_room) 
-        elif locked == True:
-            print(lockedM)
+            handle_command(action, current_room)
+        elif action in room_exits:
+            print(action)
+            if locked == True:
+                print(lockedM)
+            else:
+                handle_command(action, current_room)
         else:
             print('that is not a command')
 
