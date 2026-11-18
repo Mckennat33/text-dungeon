@@ -45,16 +45,34 @@ rooms = {
 }
 
 inventory = []  
+commands = ['look', 'use', 'take', 'inventory' ,'help', 'quit']
+user_menu = ['look', 'use', 'take', 'inventory' ,'help', 'quit']
+
 def show_inventory():
     print(inventory) # need to add functionality
 
-def handle_command(prompt, room):
-    if prompt == "quit":
+def handle_command(prompt, room_now):
+    # 'look', 'use', 'take', 'inventory' ,'help', 'quit'
+    if prompt == 'quit':
         exit_game()
-    else:
-        print('================================')
-        print(f"You typed {prompt}")
+        
+    elif prompt == 'look':
+        if room_now in rooms: 
+            print(rooms[room_now]['description'])
+
+    elif prompt == 'use':
+        print('use')
+    elif prompt == 'take':
+        print('take')
+    elif prompt == 'inventory':
+        print('inventory')
+    elif prompt == 'help':
+        for list in commands:
+            print(list)
     
+    
+def player_action(action, room):
+    print('You pressed ', action, 'You are currently in ', room)
 
 def exit_game():
     print('You exited the game')
@@ -75,23 +93,26 @@ def start_game():
             print('That is not a command')
 
 def play(): 
+
     current_room = "cell" 
     print("Type 'help' for a list of commands")
-    room_descipription = rooms[current_room]["description"]
-    locked = rooms[current_room]['locked_exit']
-    lockedM = rooms[current_room]['locked_message']
-    print(room_descipription)
+    room_descipription = rooms[current_room]["description"] #description
+    locked = rooms[current_room]['locked_exit'] # is exit locked
+    lockedM = rooms[current_room]['locked_message'] # locked message
+    print(room_descipription) 
+
     while True:  
-        room_exits = rooms[current_room]['exits'] 
-        action = input('').strip().lower()
-        if action in ('look', 'use', 'take', 'inventory' ,'help', 'quit'): 
-            handle_command(action, current_room)
-        elif action in room_exits:
-            print(action)
+        room_exits = rooms[current_room]['exits'] #location of exit
+        action = input('> ').strip().lower()
+
+        if action in commands: 
+            handle_command(action, current_room) 
+        elif action in room_exits: 
+            print('exit room statement') 
             if locked == True:
                 print(lockedM)
             else:
-                handle_command(action, current_room)
+                player_action(action, current_room)
         else:
             print('that is not a command')
 
