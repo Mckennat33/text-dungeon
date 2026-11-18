@@ -46,7 +46,6 @@ rooms = {
 
 inventory = []  
 commands = ['look', 'use', 'take', 'inventory' ,'help', 'quit']
-user_menu = ['look', 'use', 'take', 'inventory' ,'help', 'quit']
 
 def show_inventory():
     print(inventory) # need to add functionality
@@ -55,13 +54,17 @@ def handle_command(prompt, room_now):
     # 'look', 'use', 'take', 'inventory' ,'help', 'quit'
     if prompt == 'quit':
         exit_game()
-        
+
     elif prompt == 'look':
         if room_now in rooms: 
             print(rooms[room_now]['description'])
 
     elif prompt == 'use':
-        print('use')
+        if inventory == []:
+            print('You have no items in your inventory')
+        else: 
+            print('You used a item we, need to add functionality')
+
     elif prompt == 'take':
         print('take')
     elif prompt == 'inventory':
