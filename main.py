@@ -68,7 +68,12 @@ def handle_command(prompt, room_now):
     elif prompt == 'take':
         print('take')
     elif prompt == 'inventory':
-        print('inventory')
+        if inventory == []: 
+            print("You don't have anything in your inventory")
+        else:
+            for items in inventory:
+                print(items)
+
     elif prompt == 'help':
         for list in commands:
             print(list)
