@@ -76,7 +76,7 @@ def handle_command(prompt, room_now):
 
     elif prompt == 'help':
         for list in commands:
-            print(list)
+            print(list.capitalize())
     
     
 def player_action(action, room):
