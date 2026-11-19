@@ -64,8 +64,8 @@ def handle_command(prompt, current_room):
     if prompt == 'quit':
         exit_game()
 
-    if prompt == 'go':
-        print("go")
+    if prompt == 'go'.join(''):
+        print(prompt)
 
     elif prompt == 'look':
         if current_room in rooms: 
@@ -138,16 +138,17 @@ def play():
     while True:  
         room_exits = rooms[current_room]['exits'] #location of exit
         action = input('> ').strip().lower()
+        go_action = action.split()
         if action in commands: 
             handle_command(action, current_room) 
-        elif action in room_exits: 
-            print('exit room statement') 
+        elif len(go_action) == 2 and go_action[0] == 'go' and go_action[1] in room_exits: 
             if locked == True:
                 print(lockedM)
             else:
                 player_action(action, current_room)
         else:
             print('that is not a command')
+
 
 start_game()
 play()
