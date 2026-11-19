@@ -45,7 +45,16 @@ rooms = {
 }
 
 inventory = []  
-commands = ['look', 'use', 'take', 'inventory' ,'help', 'quit']
+# commands = ['go', 'look', 'use: <item>', 'take: <item>', 'inventory' ,'help', 'quit']
+commands = {
+    'go': '', 
+    'look': '', 
+    'use': '',
+    'take': '', 
+    'inventory': '',
+    'help': '',
+    'quit': '', 
+}
 
 def show_inventory():
     print(inventory) # need to add functionality
@@ -54,6 +63,9 @@ def handle_command(prompt, current_room):
     # 'look', 'use', 'take', 'inventory' ,'help', 'quit'
     if prompt == 'quit':
         exit_game()
+
+    if prompt == 'go':
+        print("go")
 
     elif prompt == 'look':
         if current_room in rooms: 
@@ -78,7 +90,9 @@ def handle_command(prompt, current_room):
 
 
 def use_item(current_room):
-    print(current_room)
+    # input - use 
+    # output - 
+    # statagy. 
     if inventory == []:
         print('You have no items in your inventory')
     else: 
@@ -124,7 +138,6 @@ def play():
     while True:  
         room_exits = rooms[current_room]['exits'] #location of exit
         action = input('> ').strip().lower()
-
         if action in commands: 
             handle_command(action, current_room) 
         elif action in room_exits: 
