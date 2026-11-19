@@ -50,23 +50,21 @@ commands = ['look', 'use', 'take', 'inventory' ,'help', 'quit']
 def show_inventory():
     print(inventory) # need to add functionality
 
-def handle_command(prompt, room_now):
+def handle_command(prompt, current_room):
     # 'look', 'use', 'take', 'inventory' ,'help', 'quit'
     if prompt == 'quit':
         exit_game()
 
     elif prompt == 'look':
-        if room_now in rooms: 
-            print(rooms[room_now]['description'])
+        if current_room in rooms: 
+            print(rooms[current_room]['description'])
 
     elif prompt == 'use':
-        if inventory == []:
-            print('You have no items in your inventory')
-        else: 
-            print('You used a item we, need to add functionality')
+        use_item(current_room)
 
     elif prompt == 'take':
-        print('take')
+        take_item(current_room)
+
     elif prompt == 'inventory':
         if inventory == []: 
             print("You don't have anything in your inventory")
@@ -77,14 +75,28 @@ def handle_command(prompt, room_now):
     elif prompt == 'help':
         for list in commands:
             print(list.capitalize())
+
+
+def use_item(current_room):
+    print(current_room)
+    if inventory == []:
+        print('You have no items in your inventory')
+    else: 
+        print('You used a item we, need to add functionality')
     
+
+def take_item(current_room):
+    print('take item action used')
+
     
 def player_action(action, room):
     print('You pressed ', action, 'You are currently in ', room)
 
+
 def exit_game():
     print('You exited the game')
     sys.exit()
+
 
 def start_game():
     print('You wake on stone cold. Somewhere above, water drips. You need to get out!!')
