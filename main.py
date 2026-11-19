@@ -47,13 +47,13 @@ rooms = {
 inventory = []  
 # commands = ['go', 'look', 'use: <item>', 'take: <item>', 'inventory' ,'help', 'quit']
 commands = {
-    'go': '', 
-    'look': '', 
-    'use': '',
-    'take': '', 
-    'inventory': '',
-    'help': '',
-    'quit': '', 
+    'go': 'north, south, east, west', 
+    'look': 'Describe the room', 
+    'use': '<item>',
+    'take': '<item>', 
+    'inventory': '<items in inventory>',
+    'help': 'this list',
+    'quit': 'Exit Game', 
 }
 
 def show_inventory():
@@ -85,8 +85,8 @@ def handle_command(prompt, current_room):
                 print(items)
 
     elif prompt == 'help':
-        for list in commands:
-            print(list.capitalize())
+        for key, value in commands.items():
+	        print(f"{key}: {value}")
 
 
 def use_item(current_room):
