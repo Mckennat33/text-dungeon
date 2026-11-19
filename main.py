@@ -136,16 +136,19 @@ def play():
     print(room_descipription) 
 
     while True:  
-        room_exits = rooms[current_room]['exits'] #location of exit
+        room_exits = rooms[current_room]['exits'] #location of exit 
+        
         action = input('> ').strip().lower()
         go_action = action.split()
-        if action in commands: 
-            handle_command(action, current_room) 
+        if action == 'go':
+            print('Go where? tyr: go north')
         elif len(go_action) == 2 and go_action[0] == 'go' and go_action[1] in room_exits: 
             if locked == True:
                 print(lockedM)
             else:
                 player_action(action, current_room)
+        if action in commands: 
+            handle_command(action, current_room) 
         else:
             print('that is not a command')
 
