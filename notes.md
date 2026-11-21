@@ -1,3 +1,24 @@
+# Problem - LAST NOTES FROM STICKY
+Input: Direction (north) if direction not in list = can’t go that way. 
+output: if door locked = true - “door locked look for key”
+
+take changes inventory 
+
+— How do we connect the actions to the rooms dictionary. 
+need to add a “go” in play? 
+
+Probably don’t need the player_action function. 
+
+items: 
+	torch - can only grab first. 
+	metal spoon
+
+input will be go north 
+output - error message cell door is locked 
+
+anything thats not use, take or go - move on
+
+
 # Problem Solving 
 
 the exits and you see print statements need to be dynamic for each cell
